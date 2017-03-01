@@ -1,30 +1,25 @@
-# blog
-A blog with both admin panel where admin have different roles and can perform different tasks according to their roles. Developed in Laravel 5.3
+# Blog
+Blog is a blog with both client side admin panel where admin have different roles and can perform different tasks according to their roles. Developed in Laravel 5.3
 
-# Laravel PHP Framework
+## How to use for the first time?
+* Clone the repo or download it as zip file and extract it.
+* Open command prompt or terminal and go to the projects directory.
+* Type "php artisan migrate --seed" without double quotes.
+* Now you are ready.
+* Go to browser and enter the url of this project. It will depend on where you have kept this project folder. E.g. If you have cloned this repo/project in the htdocs folder(in case if you are using XAMPP) then type "localhost/blog" and done.
+* The client side UI is not good. 
+* To go to admin side type "localhost/blog/admin" without quotes.
+* There are three users created by default, they are Ashish, Anita and Kedar.
+    * Ashish [email: ashish@gmail.com, password: ashish, role: core]
+    * Anita  [email: anita@gmail.com,  password: anita,  role: main]
+    * Kedar  [email: kedar@gmail.com,  password: kedar,  role: editor]
+* The core user has access to everything. Give core role to developers.
+* The main user has access to everything except some core features like: they cannot change default static navigation in admin side.
+* The user with editor cannot assign roles to users. They can do all the things with article published.
+* There is also a user with role normal who cannot access admin side. You can assign such roles to your website subscribers.
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
-
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
-
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Plugins used
+* [Tokenfield](http://sliptree.github.io/bootstrap-tokenfield/)
+* [DataTables](https://datatables.net/)
+* [Bootstrap fileinput](https://github.com/kartik-v/bootstrap-fileinput)
+* [Tinymce](https://www.tinymce.com/)
