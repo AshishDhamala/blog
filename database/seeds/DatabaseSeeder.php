@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
     DB::table('roles')->insert([
         ['name' => 'core'],
         ['name' => 'main'],
-        ['name' => 'admin'],
         ['name' => 'editor'],
+        ['name' => 'admin'],
         ['name' => 'normal'],
     ]);
 
