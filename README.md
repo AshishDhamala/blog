@@ -10,3 +10,10 @@ A blog with both admin panel where admin have different roles and can perform di
 - The client side UI is not good. 
 - To go to admin side type "localhost/blog/admin" without quotes.
 - There are three users created by default, they are Ashish, Anita and Kedar.
+ -- Ashish [email: ashish@gmail.com, password: ashish, role: core]
+ -- Anita [email: anitah@gmail.com, password: anita, role: main]
+ -- Kedar [email: kedar@gmail.com, password: kedar, role: editor]
+- The core user has access to everything. Give core role to developers.
+- The main user has access to everything except some core features like: they cannot change default static navigation in admin side.
+- The user with editor cannot assign roles to users. They can do all the things with article published.
+- There is also a user with role normal who cannot access admin side. You can assign such roles to your website subscribers.
