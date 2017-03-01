@@ -1,5 +1,5 @@
 # Blog
-Blog is a blog with both admin panel where admin have different roles and can perform different tasks according to their roles. Developed in Laravel 5.3
+Blog is a blog with both client side admin panel where admin have different roles and can perform different tasks according to their roles. Developed in Laravel 5.3
 
 ## How to use for the first time?
 * Clone the repo or download it as zip file and extract it.
