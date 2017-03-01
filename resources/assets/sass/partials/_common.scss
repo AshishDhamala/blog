@@ -1,0 +1,294 @@
+@import "mixins";
+
+body {
+  font-family : Verdana, Geneva, sans-serif;
+}
+
+a {
+  @include transition("all 0.4s ease");
+  text-decoration : none !important;
+}
+
+a[disabled] {
+  pointer-events : none;
+}
+
+ul {
+  margin  : 0;
+  padding : 0;
+  li {
+    list-style-type : none;
+  }
+}
+
+.asdh-center_image_inside_me {
+  width    : 200px;
+  height   : 200px;
+  position : relative;
+  overflow : hidden;
+  display  : block;
+  img {
+    position : absolute;
+    width    : 100%;
+  }
+}
+
+.asdh-common_min_height {
+  min-height : 600px;
+  clear      : both;
+  @extend %asdh-margin_bottom;
+}
+
+.asdh-nice_top_margin {
+  margin-top : 20px;
+  @media (max-width : $xs_sm) {
+    margin-top : 10px;
+  }
+}
+
+.asdh-nice_bottom_margin {
+  margin-bottom : 20px;
+  @media (max-width : $xs_sm) {
+    margin-bottom : 10px;
+  }
+}
+
+// text that is displayed below any input field
+.form-text {
+  display : block;
+}
+
+.table-responsive {
+  @media (min-width : $xs_sm) {
+    display : table;
+  }
+}
+
+// this classes is for not showing default ascending and descending orders of dataTables plugin
+.sorting, .sorting_asc, .sorting_desc {
+  background-image : none !important;
+}
+
+// class for ajax request and id for normal request
+.asdh-message, #asdh-message {
+  z-index       : 1;
+  background    : #FFFFFF;
+  position      : fixed;
+  top           : 50%;
+  left          : 50%;
+  width         : 40%;
+  @media (max-width : $xs_sm) {
+    width : 90%;
+  }
+  border        : 1px solid $asdh-border_color;
+  border-radius : 7px;
+  text-align    : center;
+  @include transform('translate(-50%, -50%)');
+  @include box-shadow($shadow_color + ' 0 0 20px');
+  h3 {
+    margin         : 10px 0 20px;
+    padding-bottom : 15px;
+    border-bottom  : 1px solid $asdh-border_color;
+  }
+}
+
+.asdh-message {
+  display : none;
+}
+
+// for check mark
+$color--green : #7AC142;
+$curve : cubic-bezier(0.650, 0.000, 0.450, 1.000);
+.checkmark__circle {
+  stroke-dasharray  : 166;
+  stroke-dashoffset : 166;
+  stroke-width      : 2;
+  stroke-miterlimit : 10;
+  stroke            : $color--green;
+  fill              : none;
+  animation         : stroke .6s $curve forwards;
+}
+
+$checkmark : 56px;
+.checkmark {
+  width             : $checkmark;
+  height            : $checkmark;
+  border-radius     : 50%;
+  display           : block;
+  stroke-width      : 2;
+  stroke            : #FFFFFF;
+  stroke-miterlimit : 10;
+  margin            : 10% auto;
+  box-shadow        : inset 0 0 0 $color--green;
+  animation         : fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__check {
+  transform-origin  : 50% 50%;
+  stroke-dasharray  : 48;
+  stroke-dashoffset : 48;
+  animation         : stroke .3s $curve .8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset : 0;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform : none;
+  }
+  50% {
+    transform : scale3d(1.5, 1.5, 1);
+  }
+  100% {
+    transform : scale3d(1.2, 1.2, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow : inset 0px 0px 0px 30px $color--green;
+  }
+}
+
+// ---------------------------------
+svg {
+  width   : 100px;
+  display : block;
+  margin  : 40px auto 0;
+}
+
+.path {
+  stroke-dasharray  : 1000;
+  stroke-dashoffset : 0;
+  &.circle {
+    animation : dash .9s ease-in-out;
+  }
+  &.line {
+    stroke-dashoffset : 1000;
+    animation         : dash .9s .35s ease-in-out forwards;
+  }
+  &.check {
+    stroke-dashoffset : -100;
+    animation         : dash-check 1.5s .35s ease-in-out forwards;
+  }
+}
+
+p {
+  &.success {
+    text-align : center;
+    margin     : 20px 0 60px;
+    font-size  : 1.25em;
+    color      : #73AF55;
+  }
+  &.error {
+    text-align : center;
+    margin     : 20px 0 60px;
+    font-size  : 1.25em;
+    color      : #D06079;
+  }
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset : 1000;
+  }
+  100% {
+    stroke-dashoffset : 0;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset : 1000;
+  }
+  100% {
+    stroke-dashoffset : 0;
+  }
+}
+
+@-webkit-keyframes dash-check {
+  0% {
+    stroke-dashoffset : -100;
+  }
+  100% {
+    stroke-dashoffset : 900;
+  }
+}
+
+@keyframes dash-check {
+  0% {
+    stroke-dashoffset : -100;
+  }
+  100% {
+    stroke-dashoffset : 900;
+  }
+}
+
+.error {
+  color : red;
+}
+
+.asdh-delete_confirmation_dialogue {
+  z-index       : 5;
+  position      : fixed;
+  top           : 50%;
+  left          : 50%;
+  text-align    : center;
+  @include transform('translate(-50%, -50%)');
+  @include box-shadow($shadow_color+' 0 0 45px');
+  width         : 30vw;
+  @media (max-width : $xs_sm) {
+    width : 80vw;
+  }
+  padding       : 0 10px 20px;
+  background    : #FFFFFF;
+  display       : none;
+  border        : 1px solid $asdh-border_color;
+  border-radius : 5px;
+  h3 {
+    margin-bottom  : 30px;
+    padding-bottom : 10px;
+    border-bottom  : 1px solid $asdh-border_color;
+  }
+  p {
+    padding       : 0 20px 20px;
+    color         : gray;
+    border-bottom : 1px solid rgba($asdh-border_color, 0.4);
+  }
+  input {
+    margin-right : 10px;
+    width        : 100px;
+  }
+  button {
+    margin-left : 10px;
+    width       : 100px;
+  }
+  > a {
+    padding : 10px 40px;
+  }
+}
+
+.asdh-scale_and_fit {
+  display : block;
+  opacity : 0;
+  @include animation('asdh-scale_and_fit 0.6s ease forwards');
+}
+
+@keyframes asdh-scale_and_fit {
+  0% {
+    opacity : 0;
+    @include transform('scale(0.1,0.1) translate(-50%,-50%)');
+  }
+  60% {
+    opacity : 0.6;
+    @include transform('scale(1.5,1.5) translate(-50%,-50%)');
+  }
+  100% {
+    opacity : 1;
+    @include transform('scale(1,1) translate(-50%,-50%)');
+  }
+}

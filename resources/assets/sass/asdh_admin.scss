@@ -1,0 +1,168 @@
+@import "partials/common";
+
+body {
+  //padding-top: 70px;
+}
+
+// admin index
+$front_page_panels : dashboard $nice-color4,
+categories $nice-color3,
+navigations $nice-color2,
+posts $nice-color4,
+contribution $nice-color5;
+
+.asdh-admin_index {
+  .panel {
+    @each $panel in $front_page_panels {
+      $panelKey : nth($panel, 1);
+      $panelValue : nth($panel, 2);
+      &.#{$panelKey} {
+        border : 1px solid #{rgba($panelValue, 0.3)};
+        .panel-heading {
+          font-weight : bold;
+          background  : #{$panelValue};
+        }
+        .panel-body {
+          padding : 0 10px;
+          li {
+            a {
+              color   : $theme_color;
+              display : block;
+              padding : 5px;
+            }
+          }
+        }
+        .panel-footer {
+          border-top : 1px solid #{rgba($panelValue, 0.4)};
+        }
+        @if $panelKey == "dashboard" {
+          .panel-body {
+            p {
+              margin  : 0;
+              padding : 5px;
+            }
+          }
+        }
+        @if ($panelKey == "categories" or $panelKey == "navigations" or $panelKey == "posts") {
+          .panel-body {
+            min-height : 160px;
+          }
+        }
+        @if $panelKey == "contribution" {
+          text-align : center;
+          .panel-body {
+            padding : 20px 0;
+            #contribution_time {
+              font-family : 'Acme', sans-serif;
+              font-size   : 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#asdh-create_post, #asdh-edit {
+  #left_side {
+    > div {
+      background    : #FFFFFF;
+      padding       : 15px;
+      border-radius : 5px;
+      border        : 1px solid $asdh-border_color;
+    }
+  }
+  #right_side {
+  }
+}
+
+#asdh-index_post {
+  table {
+    thead {
+      tr {
+        th {
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          .asdh-center_image_inside_me {
+            width         : 100px;
+            height        : 100px;
+            border        : 3px solid #FFFFFF;
+            border-radius : 3px;
+            @include box-shadow($shadow_color + " 0 0 3px");
+          }
+        }
+      }
+    }
+  }
+}
+
+ul.asdh-right_side_edit_nav {
+  li {
+    background : rgba(#555555, 0.05);
+    a {
+      padding         : 7px;
+      text-decoration : none;
+      display         : block;
+      &:hover {
+        background : #777777;
+        color      : #FFFFFF;
+      }
+    }
+    &.asdh-active {
+      background : #555555;
+      a {
+        color : #FFFFFF;
+      }
+    }
+  }
+}
+
+.asdh-center_image_inside_me.asdh-previous_post_image_container {
+  width  : 150px;
+  height : 150px;
+  border : 1px solid $asdh-border_color;
+}
+
+.previous_post_image_label {
+  display       : block;
+  width         : 150px;
+  margin-bottom : 10px;
+  text-align    : center;
+  background    : #555555;
+  color         : #FFFFFF;
+}
+
+.asdh-edit_and_delete {
+  text-align : center;
+  min-width  : 160px;
+}
+
+// to make navigation bar active when a nav item is pressed.
+.asdh-active_nav_admin {
+  a {
+    background : $theme_color;
+    color      : #FFFFFF !important;
+    &:hover {
+      background : $theme_color / 1.5 !important;
+    }
+  }
+}
+
+.asdh-upload_image {
+  border     : 1px dashed $asdh-border_color/1.2;
+  text-align : center;
+  width      : 200px;
+  height     : 200px;
+  cursor     : pointer;
+  display    : inline-block;
+  span, i {
+    color       : $asdh-border_color/1.1;
+    font-size   : 100px;
+                //font-weight : bold;
+    line-height : 200px;
+  }
+}
